@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Margarine&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="viewport" aria-label="Portfolio canvas">
+    <div class="canvas-world">
+      <section class="about-card" aria-label="About me">
+        <img class="about-card__image" src="Assets/Aboutme.png" alt="About me" draggable="false">
+        <button class="about-card__button" type="button">About me</button>
+        <img class="about-card__drawing" src="Assets/dRAWING.png" alt="Portrait drawing of Naufy" draggable="false">
+        <span class="about-card__tagline">Get to<br>know me</span>
+        <img class="about-card__decoration about-card__line-wave" src="Assets/linewave.png" alt="" draggable="false">
+        <img class="about-card__decoration about-card__line-thin" src="Assets/linethin.png" alt="" draggable="false">
+        <img class="about-card__decoration about-card__line-one" src="Assets/line1.png" alt="" draggable="false">
+        <img class="about-card__decoration about-card__star about-card__star--one" src="Assets/star.png" alt="" draggable="false">
+        <img class="about-card__decoration about-card__star about-card__star--two" src="Assets/starsmany1.png" alt="" draggable="false">
+        <img class="about-card__decoration about-card__star about-card__star--three" src="Assets/starsmany2.png" alt="" draggable="false">
+        <img class="about-card__decoration about-card__know-more" src="Assets/knowmore.png" alt="Know more" draggable="false">
+      </section>
+      <section class="tool-cluster" aria-label="Desk tools">
+        <img class="tool-cluster__item tool-cluster__stapler" src="Assets/blue-stapler 2.png" alt="Blue stapler" draggable="false">
+        <div class="tool-cluster__shadow tool-cluster__shadow--stapler" aria-hidden="true"></div>
+        <img class="tool-cluster__item tool-cluster__pencil" src="Assets/pencil.png" alt="Yellow pencil" draggable="false">
+        <div class="tool-cluster__shadow tool-cluster__shadow--pencil" aria-hidden="true"></div>
+        <img class="tool-cluster__item tool-cluster__eraser" src="Assets/eraser.png" alt="Pink eraser" draggable="false">
+        <div class="tool-cluster__shadow tool-cluster__shadow--eraser" aria-hidden="true"></div>
+      </section>
+      <section class="sticky-note" aria-label="Skills">
+        <img class="sticky-note__image" src="Assets/stickynote.png" alt="" draggable="false">
+        <img class="sticky-note__label" src="Assets/Skills.png" alt="Skills" draggable="false">
+        <img class="sticky-note__pin" src="Assets/Weight.png" alt="" draggable="false">
+      </section>
+      <section class="plant-pot" aria-label="Desk plant">
+        <img class="plant-pot__image" src="Assets/plant.png" alt="Plant" draggable="false">
+        <div class="plant-pot__shadow" aria-hidden="true"></div>
+      </section>
+      <section class="ruler-edge" aria-label="Wooden ruler">
+        <img class="ruler-edge__image" src="Assets/ruler.png" alt="Wooden ruler" draggable="false">
+      </section>
+      <section class="document-card" aria-label="Document">
+        <img class="document-card__image" src="Assets/Document.png" alt="Document" draggable="false">
+        <div class="document-card__content">
+          <h2 class="document-card__title">Projects</h2>
+          <img class="document-card__top-secret" src="Assets/TopSecret.png" alt="" draggable="false">
+          <p class="document-card__description">A Collection of my other projects, works, portfolio</p>
+        </div>
+        <img class="document-card__open-tape" src="Assets/opentape.png" alt="Open" draggable="false">
+      </section>
+      <section class="letter-card" aria-label="Contact letter">
+        <img class="letter-card__image" src="Assets/letter.png" alt="Contact letter" draggable="false">
+        <div class="letter-card__content">
+          <h2 class="letter-card__title">Contact</h2>
+          <img class="letter-card__airplane" src="Assets/PaperAirplane.png" alt="" draggable="false">
+          <div class="letter-card__buttons" aria-label="Contact links">
+            <a class="letter-card__button" href="#" aria-label="GitHub">
+              <i class="letter-card__icon bi bi-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+            <a class="letter-card__button" href="#" aria-label="LinkedIn">
+              <i class="letter-card__icon bi bi-linkedin" aria-hidden="true"></i>
+              <span>Linkedin</span>
+            </a>
+            <a class="letter-card__button" href="#" aria-label="Email">
+              <i class="letter-card__icon bi bi-envelope-fill" aria-hidden="true"></i>
+              <span>Email</span>
+            </a>
+            <a class="letter-card__button" href="#" aria-label="WhatsApp">
+              <i class="letter-card__icon bi bi-whatsapp" aria-hidden="true"></i>
+              <span>Whatsapp</span>
+            </a>
+          </div>
+          <p class="letter-card__note">Tap a card, say hi, let's build something neat.</p>
+        </div>
+      </section>
+      <section class="experience-board" aria-label="Organizational Experience">
+        <img class="experience-board__title" src="Assets/experiencetittle.png" alt="Organizational Experience" draggable="false">
+        <img class="experience-board__card experience-board__card--creator" src="Assets/contentcreator.png" alt="Content Creator experience" draggable="false">
+        <img class="experience-board__card experience-board__card--pdd" src="Assets/pdd.png" alt="Publication Documentation and Decoration experience" draggable="false">
+        <img class="experience-board__card experience-board__card--branding" src="Assets/kabirobranding.png" alt="Head of Branding Bureau experience" draggable="false">
+      </section>
+      <section class="sticker-layer" aria-label="Decorative stickers">
+        <img class="sticker sticker--you-did-it" src="Assets/yourdiditsticker.png" alt="" draggable="false">
+        <img class="sticker sticker--emoji" src="Assets/emojisticker.png" alt="" draggable="false">
+        <img class="sticker sticker--fish" src="Assets/fishsticker.png" alt="" draggable="false">
+        <img class="sticker sticker--drag-me" src="Assets/dragmesticker.png" alt="" draggable="false">
+      </section>
+      <section class="scissors-corner" aria-label="Scissors">
+        <img class="scissors-corner__image" src="Assets/scissors.png" alt="Scissors" draggable="false">
+        <div class="scissors-corner__shadow" aria-hidden="true"></div>
+      </section>
+      <section class="hero-card" aria-label="Welcome to Naufy's Portfolio Table">
+        <img class="hero-card__image" src="Assets/header.png" alt="Welcome to Naufy's Portfolio Table. Come and Explore my projects!" draggable="false">
+      </section>
+      <section class="intro-note" aria-label="Move your cursor to explore">
+        <img class="intro-note__paper" src="Assets/moveyourcursor.png" alt="Move your Cursor to explore!" draggable="false">
+        <img class="intro-note__arrow intro-note__arrow--left" src="Assets/Arrow-1.png" alt="" draggable="false">
+        <img class="intro-note__arrow intro-note__arrow--top" src="Assets/Arrow-2.png" alt="" draggable="false">
+        <img class="intro-note__arrow intro-note__arrow--bottom" src="Assets/Arrow-3.png" alt="" draggable="false">
+      </section>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
