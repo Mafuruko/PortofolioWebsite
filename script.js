@@ -147,7 +147,7 @@ function setStickerTransform(stickerState) {
   stickerState.element.style.setProperty("--sticker-rotate", `${stickerState.rotation}deg`);
 }
 
-function clampStickerToBoard(stickerState, bounce = 0.25) {
+function clampStickerToBoard(stickerState, bounce = 0.16) {
   const board = getBoardSize();
   const radius = Math.hypot(stickerState.element.offsetWidth, stickerState.element.offsetHeight) / 2;
   const minX = radius;
@@ -182,7 +182,7 @@ function clampStickerToBoard(stickerState, bounce = 0.25) {
   stickerState.y = centerY - stickerState.originCenterY;
 
   if (hitEdge) {
-    stickerState.angularVelocity *= 0.72;
+    stickerState.angularVelocity *= 0.55;
   }
 }
 
@@ -457,9 +457,9 @@ function animateStickers() {
     stickerState.y += stickerState.velocityY;
     stickerState.rotation += stickerState.angularVelocity;
     clampStickerToBoard(stickerState);
-    stickerState.velocityX *= 0.9;
-    stickerState.velocityY *= 0.9;
-    stickerState.angularVelocity *= 0.94;
+    stickerState.velocityX *= 0.84;
+    stickerState.velocityY *= 0.84;
+    stickerState.angularVelocity *= 0.88;
     setStickerTransform(stickerState);
     stillMoving = true;
   });
@@ -526,10 +526,10 @@ function moveSticker(event) {
     y: pointer.y - currentCenter.y,
   };
   const radiusLengthSq = Math.max(radius.x * radius.x + radius.y * radius.y, 900);
-  const angularDelta = ((radius.x * dy - radius.y * dx) / radiusLengthSq) * (180 / Math.PI);
+  const angularDelta = ((radius.x * dy - radius.y * dx) / radiusLengthSq) * (180 / Math.PI) * 0.45;
   const velocityScale = (1000 / 60) / dt;
 
-  activeSticker.angularVelocity = activeSticker.angularVelocity * 0.55 + angularDelta * velocityScale * 0.45;
+  activeSticker.angularVelocity = activeSticker.angularVelocity * 0.75 + angularDelta * velocityScale * 0.25;
   activeSticker.rotation += angularDelta;
 
   const rotatedGrab = rotatePoint(
@@ -544,11 +544,11 @@ function moveSticker(event) {
     y: pointer.y - rotatedGrab.y,
   };
 
-  activeSticker.velocityX = activeSticker.velocityX * 0.55 + (nextCenter.x - currentCenter.x) * velocityScale * 0.45;
-  activeSticker.velocityY = activeSticker.velocityY * 0.55 + (nextCenter.y - currentCenter.y) * velocityScale * 0.45;
+  activeSticker.velocityX = activeSticker.velocityX * 0.72 + (nextCenter.x - currentCenter.x) * velocityScale * 0.28;
+  activeSticker.velocityY = activeSticker.velocityY * 0.72 + (nextCenter.y - currentCenter.y) * velocityScale * 0.28;
   activeSticker.x = nextCenter.x - activeSticker.originCenterX;
   activeSticker.y = nextCenter.y - activeSticker.originCenterY;
-  clampStickerToBoard(activeSticker, 0.08);
+  clampStickerToBoard(activeSticker, 0.04);
   activeSticker.lastPointerX = pointer.x;
   activeSticker.lastPointerY = pointer.y;
   activeSticker.lastMoveTime = now;
