@@ -43,6 +43,13 @@ let boardWidth = 0;
 let boardHeight = 0;
 let activeSticker = null;
 const stickerStates = new Map();
+const activeCanvasPointers = new Map();
+const pinchState = {
+  active: false,
+  distance: 0,
+  centerX: 0,
+  centerY: 0,
+};
 
 function refreshBoardSize() {
   boardWidth = world.offsetWidth;
@@ -90,6 +97,38 @@ function getWorldPoint(clientX, clientY) {
     x: (clientX - rect.left) / state.scale,
     y: (clientY - rect.top) / state.scale,
   };
+}
+
+function getPinchInfo() {
+  const points = [...activeCanvasPointers.values()];
+
+  if (points.length < 2) {
+    return null;
+  }
+
+  const first = points[0];
+  const second = points[1];
+  const dx = second.clientX - first.clientX;
+  const dy = second.clientY - first.clientY;
+
+  return {
+    distance: Math.hypot(dx, dy),
+    centerX: (first.clientX + second.clientX) / 2,
+    centerY: (first.clientY + second.clientY) / 2,
+  };
+}
+
+function zoomCanvasAt(clientX, clientY, nextScale, oldScale = state.targetScale) {
+  const scaleChange = nextScale / oldScale;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const pointerOffsetX = clientX - centerX;
+  const pointerOffsetY = clientY - centerY;
+
+  state.targetX = pointerOffsetX - (pointerOffsetX - state.targetX) * scaleChange;
+  state.targetY = pointerOffsetY - (pointerOffsetY - state.targetY) * scaleChange;
+  state.targetScale = nextScale;
+  clampTarget();
 }
 
 function getStickerCenter(sticker) {
@@ -540,6 +579,37 @@ function endStickerDrag(event) {
 viewport.addEventListener("pointermove", (event) => {
   updatePointer(event);
 
+  if (activeCanvasPointers.has(event.pointerId)) {
+    activeCanvasPointers.set(event.pointerId, {
+      clientX: event.clientX,
+      clientY: event.clientY,
+    });
+  }
+
+  if (pinchState.active) {
+    const pinch = getPinchInfo();
+
+    if (!pinch) {
+      return;
+    }
+
+    const minScale = getMinScale();
+    const oldScale = state.targetScale;
+    const nextScale = clamp(oldScale * (pinch.distance / pinchState.distance), minScale, MAX_SCALE);
+
+    state.targetX += pinch.centerX - pinchState.centerX;
+    state.targetY += pinch.centerY - pinchState.centerY;
+    zoomCanvasAt(pinch.centerX, pinch.centerY, nextScale, oldScale);
+
+    pinchState.distance = pinch.distance;
+    pinchState.centerX = pinch.centerX;
+    pinchState.centerY = pinch.centerY;
+    state.velocityX = 0;
+    state.velocityY = 0;
+    requestFrame();
+    return;
+  }
+
   if (!state.dragging) {
     return;
   }
@@ -568,6 +638,28 @@ viewport.addEventListener("pointerdown", (event) => {
   }
 
   updatePointer(event);
+  activeCanvasPointers.set(event.pointerId, {
+    clientX: event.clientX,
+    clientY: event.clientY,
+  });
+  viewport.setPointerCapture(event.pointerId);
+
+  if (activeCanvasPointers.size >= 2) {
+    const pinch = getPinchInfo();
+
+    if (pinch) {
+      pinchState.active = true;
+      pinchState.distance = pinch.distance;
+      pinchState.centerX = pinch.centerX;
+      pinchState.centerY = pinch.centerY;
+      state.dragging = false;
+      state.velocityX = 0;
+      state.velocityY = 0;
+      requestFrame();
+      return;
+    }
+  }
+
   state.dragging = true;
   state.velocityX = 0;
   state.velocityY = 0;
@@ -578,13 +670,29 @@ viewport.addEventListener("pointerdown", (event) => {
   lastDragTime = performance.now();
   lastDragX = event.clientX;
   lastDragY = event.clientY;
-  viewport.setPointerCapture(event.pointerId);
   requestFrame();
 });
 
 viewport.addEventListener("pointerup", (event) => {
+  activeCanvasPointers.delete(event.pointerId);
+
+  if (viewport.hasPointerCapture?.(event.pointerId)) {
+    viewport.releasePointerCapture(event.pointerId);
+  }
+
+  if (pinchState.active) {
+    const pinch = getPinchInfo();
+
+    if (pinch) {
+      pinchState.distance = pinch.distance;
+      pinchState.centerX = pinch.centerX;
+      pinchState.centerY = pinch.centerY;
+    } else {
+      pinchState.active = false;
+    }
+  }
+
   state.dragging = false;
-  viewport.releasePointerCapture(event.pointerId);
 
   if (performance.now() - lastDragTime > 80) {
     state.velocityX = 0;
@@ -594,7 +702,9 @@ viewport.addEventListener("pointerup", (event) => {
   requestFrame();
 });
 
-viewport.addEventListener("pointercancel", () => {
+viewport.addEventListener("pointercancel", (event) => {
+  activeCanvasPointers.delete(event.pointerId);
+  pinchState.active = false;
   state.dragging = false;
   state.velocityX = 0;
   state.velocityY = 0;
