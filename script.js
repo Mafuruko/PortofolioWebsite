@@ -13,6 +13,7 @@ const heroCard = document.querySelector(".hero-card");
 const stickers = [...document.querySelectorAll(".sticker")];
 const BASE_SCALE = 0.62;
 const MAX_SCALE = 1.45;
+const isAboutPage = document.body.classList.contains("about-page");
 
 const state = {
   pointerX: window.innerWidth / 2,
@@ -753,4 +754,16 @@ window.addEventListener("resize", () => {
 refreshBoardSize();
 state.scale = getInitialScale();
 state.targetScale = state.scale;
+
+if (isAboutPage) {
+  const aboutInitialScale = Math.max(getMinScale(), BASE_SCALE * 0.82);
+
+  state.scale = aboutInitialScale;
+  state.targetScale = aboutInitialScale;
+
+  const { maxY } = getBoardBounds(state.scale);
+  state.y = maxY;
+  state.targetY = maxY;
+}
+
 requestFrame();
