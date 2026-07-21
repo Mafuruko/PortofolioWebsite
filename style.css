@@ -55,6 +55,226 @@ body {
   background-image: url("Assets/aboutme/aboutmebg.png");
 }
 
+.achievement-page {
+  overflow: auto;
+  background: #f9f7f1;
+  color: #2f2f2f;
+  font-family: "Droid Serif", serif;
+  font-size: 14px;
+}
+
+.achievement-newspaper {
+  width: min(1600px, 96vw);
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.achievement-newspaper p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.achievement-newspaper__head {
+  position: relative;
+  text-align: center;
+}
+
+.achievement-newspaper__header-wrap {
+  position: relative;
+}
+
+.achievement-newspaper__masthead {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(58px, 7vw, 112px);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.achievement-newspaper__subhead {
+  padding: 12px 0;
+  border-top: 2px solid #2f2f2f;
+  border-bottom: 2px solid #2f2f2f;
+  text-transform: uppercase;
+}
+
+.achievement-newspaper__weather {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 15%;
+  padding: 10px 15px;
+  border: 3px double #2f2f2f;
+  line-height: 20px;
+  text-align: left;
+}
+
+.achievement-newspaper__weather span:first-child {
+  font-style: italic;
+}
+
+.achievement-newspaper__content {
+  display: inline-block;
+  margin: 30px 2% 0;
+  font-size: 0;
+  line-height: 0;
+  word-spacing: -0.31em;
+}
+
+.achievement-newspaper__column {
+  display: inline-block;
+  width: 17.5%;
+  margin-bottom: 50px;
+  padding: 0 1%;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: top;
+  word-spacing: normal;
+  transition: transform 700ms ease, opacity 700ms ease;
+}
+
+.achievement-newspaper__column + .achievement-newspaper__column {
+  border-left: 1px solid #2f2f2f;
+}
+
+.achievement-newspaper__article-head {
+  position: relative;
+  text-align: center;
+}
+
+.achievement-newspaper__headline {
+  display: block;
+  margin: 0 auto;
+  font-family: "Playfair Display", serif;
+  line-height: normal;
+  text-align: center;
+}
+
+.achievement-newspaper__headline--main {
+  padding: 10px 0;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.achievement-newspaper__headline--sub {
+  padding: 10px 0;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.achievement-newspaper__headline--sub::before,
+.achievement-newspaper__headline--sub::after,
+.achievement-newspaper__kicker::before,
+.achievement-newspaper__kicker::after {
+  content: "";
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.achievement-newspaper__headline--sub::before,
+.achievement-newspaper__kicker::before {
+  height: 7px;
+  border-top: 1px solid #2f2f2f;
+}
+
+.achievement-newspaper__headline--sub::after,
+.achievement-newspaper__kicker::after {
+  height: 10px;
+  border-bottom: 1px solid #2f2f2f;
+}
+
+.achievement-newspaper__headline--italic {
+  padding: 10px 0;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.achievement-newspaper__headline--large {
+  padding: 10px 0;
+  font-size: 42px;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.achievement-newspaper__kicker {
+  display: block;
+  padding: 10px 0;
+  font-family: "Playfair Display", serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.achievement-newspaper__citation {
+  display: block;
+  margin: 40px 0;
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 42px;
+  text-align: center;
+}
+
+.achievement-newspaper__citation::before,
+.achievement-newspaper__citation::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 16px;
+  margin: 0 auto;
+}
+
+.achievement-newspaper__citation::before {
+  border-top: 1px solid #2f2f2f;
+}
+
+.achievement-newspaper__citation::after {
+  border-bottom: 1px solid #2f2f2f;
+}
+
+@media only all and (max-width: 1300px) {
+  .achievement-newspaper__weather {
+    display: none;
+  }
+}
+
+@media only all and (max-width: 1200px) {
+  .achievement-newspaper__column {
+    width: 31%;
+  }
+}
+
+@media only all and (max-width: 900px) {
+  .achievement-newspaper__column {
+    width: 47%;
+  }
+}
+
+@media only all and (max-width: 600px) {
+  .achievement-newspaper__column {
+    width: 100%;
+  }
+
+  .achievement-newspaper__column + .achievement-newspaper__column {
+    border-left: 0;
+    border-bottom: 1px solid #2f2f2f;
+  }
+
+  .achievement-newspaper__masthead {
+    max-width: 320px;
+    overflow: hidden;
+    font-size: 60px;
+    line-height: 54px;
+  }
+}
+
 .about-page__naufy-pict {
   position: absolute;
   left: 2%;
@@ -240,6 +460,165 @@ body {
     drop-shadow(22px 30px 18px rgb(0 0 0 / 0.22))
     drop-shadow(7px 9px 4px rgb(0 0 0 / 0.18));
   transform: translateY(-3%) rotate(1deg) scale(1.018);
+  transition:
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 240ms ease;
+}
+
+.about-page__smk-logo,
+.about-page__fk-logo {
+  position: absolute;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter:
+    drop-shadow(8px 10px 7px rgb(0 0 0 / 0.18))
+    drop-shadow(2px 3px 1px rgb(0 0 0 / 0.14));
+  transform-origin: center;
+  animation: about-bob 5.4s ease-in-out infinite;
+  transition:
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 260ms ease;
+}
+
+.about-page__smk-logo {
+  left: 25%;
+  top: 81%;
+  width: 6.5%;
+  transform: rotate(0deg);
+}
+
+.about-page__fk-logo {
+  left: 23%;
+  top: 90%;
+  width: 6.5%;
+  transform: rotate(0deg);
+  animation-delay: -1.6s;
+}
+
+.about-page__quote {
+  position: absolute;
+  left: 33%;
+  top: 83%;
+  width: 23%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter:
+    drop-shadow(16px 22px 14px rgb(0 0 0 / 0.2))
+    drop-shadow(5px 7px 3px rgb(0 0 0 / 0.18));
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition:
+    transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 480ms ease;
+}
+
+.about-page__quote:hover {
+  filter:
+    drop-shadow(22px 30px 18px rgb(0 0 0 / 0.22))
+    drop-shadow(7px 9px 4px rgb(0 0 0 / 0.18));
+  transform: translateY(-3%) rotate(-1deg) scale(1.018);
+  transition:
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 240ms ease;
+}
+
+.about-page__back-button {
+  position: absolute;
+  right: 17%;
+  top: 94%;
+  width: 15.5%;
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(10px 13px 8px rgb(0 0 0 / 0.18))
+    drop-shadow(3px 4px 1px rgb(0 0 0 / 0.14));
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition:
+    transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 480ms ease;
+  z-index: 2;
+}
+
+.about-page__back-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.about-page__back-button:hover,
+.about-page__back-button:focus-visible {
+  outline: none;
+  filter:
+    drop-shadow(15px 19px 12px rgb(0 0 0 / 0.2))
+    drop-shadow(4px 6px 2px rgb(0 0 0 / 0.16));
+  transform: translateY(-8%) rotate(0deg) scale(1.03);
+  transition:
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 240ms ease;
+}
+
+.about-page__sticker {
+  z-index: 4;
+}
+
+.about-page__sticker--fish {
+  right: 18%;
+  top: 86%;
+  width: 7%;
+  --sticker-base-rotate: 0deg;
+}
+
+.about-page__sticker--clover {
+  right: 34%;
+  top: 88%;
+  width: 7%;
+  --sticker-base-rotate: 0deg;
+}
+
+.about-page__sticker--cat {
+  right: 26%;
+  top: 82%;
+  width: 8%;
+  --sticker-base-rotate: 0deg;
+}
+
+.about-page__newspaper {
+  position: absolute;
+  right: -2%;
+  bottom: -10%;
+  width: 20%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter:
+    drop-shadow(16px 22px 14px rgb(0 0 0 / 0.2))
+    drop-shadow(5px 7px 3px rgb(0 0 0 / 0.18));
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition:
+    transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 480ms ease;
+  text-decoration: none;
+}
+
+.about-page__newspaper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.about-page__newspaper:hover {
+  filter:
+    drop-shadow(22px 30px 18px rgb(0 0 0 / 0.22))
+    drop-shadow(7px 9px 4px rgb(0 0 0 / 0.18));
+  transform: translateY(-3%) rotate(-1deg) scale(1.018);
   transition:
     transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
     filter 240ms ease;
