@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Placeholder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Margarine&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="loadingplaceholder.css">
+</head>
+<body>
+  <main class="loading-preview" aria-label="Loading screen preview">
+    <section class="loading-status" aria-live="polite">
+      <h1 class="loading-status__title">
+        Preparing Table<span class="loading-status__dots" aria-hidden="true"></span>
+      </h1>
+      <img class="loading-status__sticker" src="Assets/fishsticker.png" alt="" draggable="false">
+      <p class="loading-status__wait">
+        <span class="loading-status__wait-text">please wait</span>
+        <span class="loading-status__face" aria-hidden="true">( &#8807;&#8704;&#8806;)&#12494;</span>
+      </p>
+    </section>
+  </main>
+  <script>
+    const loadingSticker = document.querySelector(".loading-status__sticker");
+    const loadingFace = document.querySelector(".loading-status__face");
+    const loadingStickers = [
+      "Assets/fishsticker.png",
+      "Assets/emojisticker.png",
+      "Assets/yourdiditsticker.png",
+      "Assets/aboutme/fishsticker.png",
+      "Assets/aboutme/catsticker.png",
+      "Assets/aboutme/cloversticker.png",
+    ];
+    const loadingFaces = [
+      "( \u2267\u2200\u2266)\u30ce",
+      "(\u2606\u2200\u2606)",
+      "(\u03c3\u2267\u25bd\u2266)\u03c3",
+      "(* >\u03c9<)",
+      "(*\u00b4\u2200\uff40\*)",
+      "(\u3002\uff65\u00b4\u0434`\uff65\u3002)",
+      "(*\u00b4\uff5e\uff40\*)",
+    ];
+    let loadingStickerIndex = 0;
+    let loadingFaceIndex = 0;
+
+    setInterval(() => {
+      loadingStickerIndex = (loadingStickerIndex + 1) % loadingStickers.length;
+      loadingSticker.src = loadingStickers[loadingStickerIndex];
+    }, 5000);
+
+    setInterval(() => {
+      loadingFace.classList.add("is-changing");
+
+      setTimeout(() => {
+        loadingFaceIndex = (loadingFaceIndex + 1) % loadingFaces.length;
+        loadingFace.textContent = loadingFaces[loadingFaceIndex];
+        loadingFace.classList.remove("is-changing");
+        loadingFace.classList.add("is-settling");
+
+        setTimeout(() => {
+          loadingFace.classList.remove("is-settling");
+        }, 520);
+      }, 500);
+    }, 3000);
+  </script>
+</body>
+</html>
