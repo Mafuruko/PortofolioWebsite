@@ -1,22 +1,15 @@
 const siteLoader = document.querySelector(".site-loader");
 const siteLoaderSticker = document.querySelector(".site-loader__sticker");
 const siteLoaderFace = document.querySelector(".site-loader__face");
-const LOADER_STORAGE_KEY = "naufy-table-loader-seen";
 
-function hasSeenLoader() {
-  try {
-    return sessionStorage.getItem(LOADER_STORAGE_KEY) === "true";
-  } catch {
-    return false;
+function waitForPageLoad() {
+  if (document.readyState === "complete") {
+    return Promise.resolve();
   }
-}
 
-function markLoaderSeen() {
-  try {
-    sessionStorage.setItem(LOADER_STORAGE_KEY, "true");
-  } catch {
-    // Ignore storage failures; the loader still works for the current visit.
-  }
+  return new Promise((resolve) => {
+    window.addEventListener("load", resolve, { once: true });
+  });
 }
 
 function waitForImages() {
@@ -40,18 +33,30 @@ function waitForImages() {
   );
 }
 
+function waitForFonts() {
+  if (!document.fonts?.ready) {
+    return Promise.resolve();
+  }
+
+  return document.fonts.ready.catch(() => {});
+}
+
 function initSiteLoader() {
-  if (!siteLoader || hasSeenLoader()) {
+  if (!siteLoader) {
     return;
   }
 
-  const loaderStickers = [
-    "Assets/fishsticker.png",
-    "Assets/emojisticker.png",
-    "Assets/yourdiditsticker.png",
-    "Assets/aboutme/fishsticker.png",
-    "Assets/aboutme/catsticker.png",
-    "Assets/aboutme/cloversticker.png",
+  const customStickers = siteLoader.dataset.loaderStickers
+    ?.split(",")
+    .map((path) => path.trim())
+    .filter(Boolean);
+  const loaderStickers = customStickers?.length ? customStickers : [
+    "Assets/fishsticker.webp",
+    "Assets/emojisticker.webp",
+    "Assets/yourdiditsticker.webp",
+    "Assets/aboutme/fishsticker.webp",
+    "Assets/aboutme/catsticker.webp",
+    "Assets/aboutme/cloversticker.webp",
   ];
   const loaderFaces = [
     "( \u2267\u2200\u2266)\u30ce",
@@ -66,7 +71,7 @@ function initSiteLoader() {
   let loaderFaceIndex = 0;
 
   const stickerInterval = window.setInterval(() => {
-    if (!siteLoaderSticker) {
+    if (!siteLoaderSticker || loaderStickers.length <= 1) {
       return;
     }
 
@@ -97,11 +102,10 @@ function initSiteLoader() {
     window.setTimeout(resolve, 1600);
   });
   const maxWait = new Promise((resolve) => {
-    window.setTimeout(resolve, 6000);
+    window.setTimeout(resolve, 10000);
   });
 
-  Promise.all([minVisible, Promise.race([waitForImages(), maxWait])]).then(() => {
-    markLoaderSeen();
+  Promise.all([minVisible, Promise.race([Promise.all([waitForPageLoad(), waitForImages(), waitForFonts()]), maxWait])]).then(() => {
     siteLoader.classList.add("is-hidden");
     window.clearInterval(stickerInterval);
     window.clearInterval(faceInterval);

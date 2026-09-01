@@ -1,4 +1,4 @@
-﻿.about-page {
+.about-page {
   overflow: hidden;
   background: #F4F0EA;
 }
@@ -8,7 +8,7 @@
 }
 
 .about-page__world {
-  background-image: url("../Assets/aboutme/aboutmebg.png");
+  background-image: url("../Assets/aboutme/aboutmebg.webp");
 }
 
 

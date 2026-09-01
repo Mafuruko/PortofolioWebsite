@@ -13,7 +13,7 @@ body {
   overflow: hidden;
   background:
     linear-gradient(rgb(18 48 42 / 0.75), rgb(18 48 42 / 0.75)),
-    url("Assets/Background.png");
+    url("Assets/Background.webp");
   background-position: center;
   background-size: cover;
   color: #4C3B27;

@@ -1,4 +1,4 @@
-﻿.site-loader {
+.site-loader {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -7,7 +7,7 @@
   padding: 32px;
   background:
     linear-gradient(rgb(18 48 42 / 0.75), rgb(18 48 42 / 0.75)),
-    url("../Assets/Background.png");
+    url("../Assets/Background.webp");
   background-position: center;
   background-size: cover;
   opacity: 1;
@@ -17,15 +17,34 @@
     visibility 520ms ease;
 }
 
-.loader-skip .site-loader,
 .site-loader.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.loader-skip .site-loader {
-  display: none;
+.site-loader--about {
+  background:
+    linear-gradient(rgb(76 59 39 / 0.18), rgb(76 59 39 / 0.18)),
+    url("../Assets/aboutme/aboutmeloading.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.site-loader--about .site-loader__title,
+.site-loader--about .site-loader__wait {
+  color: #4C3B27;
+  text-shadow:
+    0 2px 0 rgb(255 248 218 / 0.34),
+    0 7px 15px rgb(76 59 39 / 0.18);
+}
+
+.site-loader--folder {
+  background:
+    linear-gradient(rgb(43 36 28 / 0.16), rgb(43 36 28 / 0.16)),
+    url("../Assets/Folder/folderloading.webp");
+  background-position: center;
+  background-size: cover;
 }
 
 .site-loader__status {

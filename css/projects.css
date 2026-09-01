@@ -1,17 +1,17 @@
-﻿.project-page {
+.project-page {
   overflow: hidden;
   background: #2b241c;
 }
 
 .project-page__world {
   aspect-ratio: 2880 / 2048;
-  background-image: url("../Assets/Folder/Folder-BG.png");
+  background-image: url("../Assets/Folder/Folder-BG.webp");
   background-size: 100% 100%;
 }
 
 .project-file-page__world {
   aspect-ratio: 2880 / 2048;
-  background-image: url("../Assets/Folder/emptyfolder-BG.png");
+  background-image: url("../Assets/Folder/emptyfolder-BG.webp");
   background-size: 100% 100%;
 }
 
