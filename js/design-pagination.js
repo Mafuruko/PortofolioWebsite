@@ -9,97 +9,121 @@ const casePages = [
   [
     {
       code: "DSG-001",
-      year: "2025",
-      image: "Assets/pdd.png",
-      alt: "Visual identity design case file",
-      title: "Visual Identity",
-      category: "Brand System - Design",
-      description: "A compact identity direction built from consistent color, type, layout, and asset rules.",
-      result: "Brand System",
+      year: "2026",
+      image: "Assets/Folder/savera.jpeg",
+      alt: "Kabinet Savera PSM ITS visual identity design case file",
+      title: "Design Feeds Kabinet Savera",
+      category: "ITS Student Choir - Visual Identity",
+      client: "ITS Student Choir (Kabinet Savera)",
+      role: "Kabiro Branding",
+      description: "Visual identity dan konten Instagram Kabinet Savera dengan pendekatan playful, hangat, dan distinctive.",
+      brief: "Membuat visual identity dan konten Instagram untuk Kabinet Savera PSM ITS yang dapat merepresentasikan karakter kabinet dengan pendekatan yang playful, hangat, dan menarik. Konsep visual dikembangkan dengan inspirasi children's storybook dan puppet show, kemudian diterapkan ke berbagai kebutuhan konten seperti feeds, story, copywriting, hingga konten reveal.",
+      objective: "Membangun tampilan media sosial yang konsisten dan memiliki identitas visual yang kuat agar Kabinet Savera lebih mudah dikenali oleh audiens. Selain itu, desain dibuat untuk menciptakan pengalaman visual yang lebih menyenangkan serta meningkatkan ketertarikan audiens terhadap konten ITS Student Choir.",
+      process: [
+        "Menentukan konsep visual utama dengan inspirasi children's storybook dan puppet show.",
+        "Mengembangkan elemen desain, layout, ilustrasi, dan gaya komunikasi yang konsisten untuk setiap konten.",
+        "Menerapkan visual identity ke berbagai kebutuhan seperti Instagram feeds, story, copywriting, dan konten reveal.",
+        "Membuat animasi sederhana untuk mendukung konten reveal agar terasa lebih dinamis dan menarik.",
+        "Menjaga konsistensi visual selama periode kabinet agar seluruh konten memiliki karakter yang sama.",
+      ],
+      solution: "Visual identity Kabinet Savera berhasil diterapkan secara konsisten pada berbagai format konten Instagram ITS Student Choir. Pendekatan children's storybook dan puppet show memberikan karakter yang lebih playful dan distinctive.",
+      metrics: [
+        { value: "15+", label: "Designs Created" },
+        { value: "71.67%", label: "KPI Achievement" },
+        { value: "1 Tahun", label: "Periode" },
+      ],
+      result: "15+ Designs",
+      evidenceUrl: "https://www.instagram.com/itschoir/",
+      evidenceImages: ["Assets/Folder/Savera-1.png", "Assets/Folder/savera-2.png"],
     },
     {
       code: "DSG-002",
-      year: "2025",
-      image: "Assets/kabirobranding.png",
-      alt: "Social media layout design case file",
-      title: "Social Layout",
-      category: "Publication - Template",
-      description: "A reusable feed layout system for keeping visual content structured, readable, and consistent.",
-      result: "Template Kit",
+      year: "2026",
+      image: "Assets/Folder/orcaelits.jpeg",
+      alt: "Forum Daerah Samarinda visual identity design case file",
+      title: "Design Feeds IniLhoITS Samarinda",
+      category: "Forum Daerah Bahima ITS - Social Media Design",
+      client: "Forum Daerah Bahima ITS",
+      role: "Ketua Divisi Publikasi, Dokumentasi, dan Desain",
+      description: "Revitalisasi identitas visual Instagram Forum Daerah Samarinda agar lebih konsisten, menarik, dan mudah dikenali.",
+      brief: "Membangun kembali identitas visual dan media sosial Forum Daerah Samarinda setelah aktivitas organisasi dari generasi sebelumnya mulai berkurang. Sebagai bagian dari proses revitalisasi forum, dibutuhkan tampilan Instagram yang konsisten dan menarik untuk memperkenalkan kembali Forum Daerah Samarinda kepada mahasiswa dan calon mahasiswa ITS asal Samarinda.",
+      objective: "Membangun identitas visual media sosial dari awal yang dapat menjadi fondasi komunikasi Forum Daerah Samarinda. Desain dibuat untuk menciptakan tampilan Instagram yang lebih konsisten, mudah dikenali, serta mendukung penyampaian informasi dan kegiatan forum kepada audiens.",
+      process: [
+        "Menentukan konsep dan arah visual Forum Daerah Samarinda dari awal bersama tim.",
+        "Mengembangkan sistem desain untuk Instagram feeds dan template story agar memiliki tampilan yang konsisten.",
+        "Membuat berbagai kebutuhan konten untuk mendukung informasi, kegiatan, dan pengenalan kembali forum kepada audiens.",
+        "Menjaga konsistensi visual agar identitas yang dibangun dapat digunakan sebagai dasar untuk konten selanjutnya.",
+        "Berkolaborasi dengan tim dalam membangun kembali presence Forum Daerah Samarinda di media sosial.",
+      ],
+      solution: "Proyek ini berhasil membangun kembali identitas visual Forum Daerah Samarinda dari awal dan menerapkannya secara konsisten pada Instagram feeds maupun story.",
+      metrics: [
+        { value: "15+", label: "Designs Created" },
+        { value: "100%", label: "KPI Achievement" },
+        { value: "1 Tahun 5 Bulan", label: "Periode" },
+      ],
+      result: "100% KPI",
+      evidenceUrl: "https://www.instagram.com/orcael.its/",
+      evidenceImages: ["Assets/Folder/orcaelits-1.png", "Assets/Folder/orcaelits-2.png"],
     },
     {
       code: "DSG-003",
-      year: "2024",
-      image: "Assets/contentcreator.png",
-      alt: "Poster direction design case file",
-      title: "Poster Direction",
-      category: "Campaign - Visual Design",
-      description: "Poster compositions focused on stronger hierarchy, clearer messaging, and expressive visuals.",
-      result: "Composed",
+      year: "2025",
+      image: "Assets/Folder/niraswara.jpeg",
+      alt: "Kabinet Niraswara PSM ITS visual identity design case file",
+      title: "Design Feeds Kabinet Niraswara",
+      category: "ITS Student Choir - Branding",
+      client: "ITS Student Choir (Kabinet Niraswara)",
+      role: "Kabiro Branding",
+      description: "Identitas visual Kabinet Niraswara dan momentum 50 tahun PSM ITS dengan konsep Greek museum.",
+      brief: "Mengembangkan identitas visual media sosial Kabinet Niraswara sekaligus mendukung momentum 50 Tahun PSM ITS melalui tampilan yang memiliki karakter kuat dan konsisten. Konsep visual dikembangkan melalui Graphic Standard Manual (GSM) dengan inspirasi Greek museum, kemudian diterapkan ke Instagram feeds, konten animasi, dan berbagai kebutuhan komunikasi digital.",
+      objective: "Membangun visual identity yang dapat merepresentasikan Kabinet Niraswara dan perayaan 50 Tahun PSM ITS secara konsisten di media sosial. Konten juga dikembangkan agar Instagram ITS Student Choir tidak hanya berfungsi sebagai media informasi, tetapi mulai memiliki pendekatan content creation yang lebih kreatif dan engaging.",
+      process: [
+        "Mengembangkan Graphic Standard Manual dengan konsep visual yang terinspirasi dari Greek museum.",
+        "Menerapkan identitas visual ke berbagai kebutuhan Instagram feeds dan konten digital.",
+        "Membuat animasi sederhana untuk mendukung reveal dan penyampaian visual agar lebih dinamis.",
+        "Mulai mengembangkan konsep content creation sebagai pendekatan baru dalam media sosial PSM ITS.",
+        "Mempelajari proses media, branding, dan desain secara mandiri bersama tim serta melakukan evaluasi berdasarkan KPI.",
+      ],
+      solution: "Kabinet Niraswara menjadi salah satu proses awal dalam membangun pengalaman media, branding, dan desain. Melalui pengembangan GSM, konten visual, animasi, dan pendekatan content creation, tim berhasil menciptakan identitas media sosial yang konsisten.",
+      metrics: [
+        { value: "20+", label: "Designs Created" },
+        { value: "98.34%", label: "KPI Achievement" },
+        { value: "1 Tahun", label: "Periode" },
+      ],
+      result: "98.34% KPI",
+      evidenceUrl: "https://www.instagram.com/itschoir/",
+      evidenceImages: ["Assets/Folder/niraswara-1.png", "Assets/Folder/niraswara-2.png"],
     },
   ],
   [
     {
       code: "DSG-004",
-      year: "2025",
-      image: "Assets/pdd.png",
-      alt: "Brand kit design case file",
-      title: "Brand Kit",
-      category: "Identity - Assets",
-      description: "A practical set of visual components for keeping event and organization materials aligned.",
-      result: "Packaged",
-    },
-    {
-      code: "DSG-005",
       year: "2024",
-      image: "Assets/kabirobranding.png",
-      alt: "Motion poster design case file",
-      title: "Motion Poster",
-      category: "Motion - Social Media",
-      description: "A poster concept adapted into moving visuals for a more dynamic social media presentation.",
-      result: "Animated",
-    },
-    {
-      code: "DSG-006",
-      year: "2024",
-      image: "Assets/contentcreator.png",
-      alt: "Carousel design case file",
-      title: "Carousel Pack",
-      category: "Editorial - Layout",
-      description: "A slide-based visual system that balances information, rhythm, and clean composition.",
-      result: "Published",
-    },
-  ],
-  [
-    {
-      code: "DSG-007",
-      year: "2026",
-      image: "Assets/pdd.png",
-      alt: "Editorial layout case file",
-      title: "Editorial Layout",
-      category: "Print - Digital",
-      description: "A grid-led layout exploration for long-form information with strong visual pacing.",
-      result: "Laid Out",
-    },
-    {
-      code: "DSG-008",
-      year: "2025",
-      image: "Assets/kabirobranding.png",
-      alt: "Logo study case file",
-      title: "Logo Study",
-      category: "Identity - Exploration",
-      description: "A symbol and type exploration focused on recognizability, balance, and flexible use.",
-      result: "Explored",
-    },
-    {
-      code: "DSG-009",
-      year: "2025",
-      image: "Assets/contentcreator.png",
-      alt: "Thumbnail design case file",
-      title: "Thumbnail Pack",
-      category: "Content - Visual Hook",
-      description: "A thumbnail direction made to improve clarity, contrast, and first-look attention.",
-      result: "Ready",
+      image: "Assets/Folder/abracadabra.jpeg",
+      alt: "Kabinet Abracadabra PSM ITS social media design case file",
+      title: "Design Feeds Kabinet Abracadabra",
+      category: "ITS Student Choir - Media Information",
+      client: "ITS Student Choir (Kabinet Abracadabra)",
+      role: "Staff Magang Media Informasi",
+      description: "Desain media informasi Instagram Kabinet Abracadabra selama periode magang dengan arahan dan feedback tim.",
+      brief: "Mendukung kebutuhan media informasi Kabinet Abracadabra PSM ITS melalui pembuatan berbagai desain untuk Instagram selama periode magang. Sebagai pengalaman awal di bidang media dan desain, saya terlibat dalam proses pembuatan konten visual dengan arahan dan bimbingan dari anggota tim yang lebih berpengalaman.",
+      objective: "Membantu menjaga konsistensi visual media sosial ITS Student Choir sekaligus mempelajari proses pembuatan desain yang sesuai dengan identitas Kabinet Abracadabra. Periode magang ini juga menjadi kesempatan untuk memahami alur kerja media informasi, mulai dari menerima brief hingga menghasilkan desain yang siap dipublikasikan.",
+      process: [
+        "Mempelajari dasar pembuatan desain media sosial berdasarkan visual identity yang telah ditentukan.",
+        "Membuat berbagai kebutuhan Instagram feeds seperti Birthday Calendar, apresiasi anggota, dan konten informatif lainnya.",
+        "Menerima feedback dan melakukan revisi desain bersama tim Media Informasi.",
+        "Menyesuaikan desain dengan guideline serta karakter visual Kabinet Abracadabra.",
+        "Berkontribusi selama kurang lebih enam bulan dalam setengah periode kepengurusan.",
+      ],
+      solution: "Kabinet Abracadabra menjadi pengalaman awal dalam mempelajari media informasi dan desain secara lebih terstruktur. Melalui bimbingan, feedback, dan pengerjaan berbagai konten Instagram, workflow desain organisasi mulai terbentuk.",
+      metrics: [
+        { value: "5+", label: "Designs Created" },
+        { value: "93.59%", label: "KPI Achievement" },
+        { value: "6 Bulan", label: "Periode" },
+      ],
+      result: "93.59% KPI",
+      evidenceUrl: "https://www.instagram.com/itschoir/",
+      evidenceImages: ["Assets/Folder/abracadabra-1.png", "Assets/Folder/abracadabra-2.png"],
     },
   ],
 ];
@@ -113,6 +137,14 @@ if (totalFilesLabel) {
 }
 
 function setCardContent(card, data) {
+  card.hidden = !data;
+
+  if (!data) {
+    card.removeAttribute("data-case-data");
+    return;
+  }
+
+  card.dataset.caseData = JSON.stringify(data);
   card.querySelector(".case-card__meta span:first-child").textContent = data.code;
   card.querySelector(".case-card__year").textContent = data.year;
 
@@ -127,8 +159,8 @@ function setCardContent(card, data) {
 }
 
 function renderCasePage() {
-  casePages[currentPage].forEach((caseData, index) => {
-    setCardContent(caseCards[index], caseData);
+  caseCards.forEach((card, index) => {
+    setCardContent(card, casePages[currentPage][index]);
   });
 
   pageIndicator.textContent = `${currentPage + 1}/${casePages.length}`;

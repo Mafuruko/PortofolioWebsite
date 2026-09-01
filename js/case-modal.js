@@ -45,14 +45,13 @@ caseModalTemplate.innerHTML = `
     </section>
     <section class="case-modal__section">
       <h3>Evidence</h3>
+      <a class="case-modal__evidence-link" href="#" target="_blank" rel="noopener noreferrer">Open Evidence -></a>
       <div class="case-modal__evidence">
         <figure>
           <img class="case-modal__image case-modal__image--primary" src="" alt="">
-          <figcaption>Main project evidence from the selected case file.</figcaption>
         </figure>
         <figure>
           <img class="case-modal__image case-modal__image--secondary" src="" alt="">
-          <figcaption>Supporting visual reference from the creative archive.</figcaption>
         </figure>
       </div>
     </section>
@@ -91,6 +90,10 @@ let maxPaperScrollY = 0;
 let touchStartY = 0;
 
 function getCardData(card) {
+  if (card.dataset.caseData) {
+    return JSON.parse(card.dataset.caseData);
+  }
+
   const image = card.querySelector(".case-card__photo");
 
   return {
@@ -109,23 +112,55 @@ function setModalContent(data) {
   caseModal.querySelector(".case-modal__code").textContent = data.code;
   caseModal.querySelector(".case-modal__year").textContent = data.year;
   caseModal.querySelector(".case-modal__year-inline").textContent = data.year;
-  caseModal.querySelector(".case-modal__client").textContent = data.category.split("-")[0]?.trim() || data.category;
+  caseModal.querySelector(".case-modal__client").textContent =
+    data.client || data.category.split("-")[0]?.trim() || data.category;
+  caseModal.querySelector(".case-modal__role").textContent = data.role || "Creative Direction";
 
+  const evidenceImages = data.evidenceImages || [data.image, data.image];
   const primaryImage = caseModal.querySelector(".case-modal__image--primary");
-  primaryImage.src = data.image;
+  primaryImage.src = evidenceImages[0] || data.image;
   primaryImage.alt = data.alt;
 
   const secondaryImage = caseModal.querySelector(".case-modal__image--secondary");
-  secondaryImage.src = data.image;
+  secondaryImage.src = evidenceImages[1] || evidenceImages[0] || data.image;
   secondaryImage.alt = data.alt;
 
   caseModal.querySelector(".case-modal__title").textContent = data.title;
-  caseModal.querySelector(".case-modal__description").textContent = data.description;
+  caseModal.querySelector(".case-modal__description").textContent = data.brief || data.description;
   caseModal.querySelector(".case-modal__objective").textContent =
-    `Create a clear creative direction for ${data.title.toLowerCase()} while keeping the output useful, polished, and easy to understand.`;
+    data.objective || `Create a clear creative direction for ${data.title.toLowerCase()} while keeping the output useful, polished, and easy to understand.`;
+
+  const processList = caseModal.querySelector(".case-modal__process");
+  const processItems = data.process || [
+    "Mapped the audience need, visual direction, and project constraints.",
+    "Designed the main layout system and refined it through visual review.",
+    "Prepared the final assets with consistent spacing, hierarchy, and tone.",
+  ];
+  processList.innerHTML = processItems.map((item) => `<li>${item}</li>`).join("");
+
   caseModal.querySelector(".case-modal__solution").textContent =
-    `The final direction focused on stronger hierarchy, consistent visual rhythm, and a cleaner presentation that supports the project goal.`;
-  caseModal.querySelector(".case-modal__result").textContent = data.result;
+    data.solution || "The final direction focused on stronger hierarchy, consistent visual rhythm, and a cleaner presentation that supports the project goal.";
+
+  const evidenceLink = caseModal.querySelector(".case-modal__evidence-link");
+  if (data.evidenceUrl) {
+    evidenceLink.href = data.evidenceUrl;
+    evidenceLink.hidden = false;
+  } else {
+    evidenceLink.hidden = true;
+    evidenceLink.removeAttribute("href");
+  }
+
+  const metricCards = caseModal.querySelectorAll(".case-modal__metrics div");
+  const metrics = data.metrics || [
+    { value: "3+", label: "Assets" },
+    { value: "1", label: "Case File" },
+    { value: data.result, label: "Outcome" },
+  ];
+  metricCards.forEach((metricCard, index) => {
+    const metric = metrics[index] || metrics[metrics.length - 1];
+    metricCard.querySelector("strong").textContent = metric.value;
+    metricCard.querySelector("span").textContent = metric.label;
+  });
 }
 
 function openCaseModal(card) {
