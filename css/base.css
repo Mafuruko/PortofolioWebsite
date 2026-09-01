@@ -6,6 +6,11 @@
     auto;
 }
 
+:root {
+  color-scheme: only light;
+  background: #16251f;
+}
+
 html,
 body {
   width: 100%;
@@ -19,6 +24,13 @@ body {
   background: #16251f;
   overscroll-behavior: none;
   user-select: none;
+}
+
+button,
+input,
+textarea,
+select {
+  color-scheme: only light;
 }
 
 
