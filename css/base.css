@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgb(134 39 38 / 0.18);
   cursor: url("../Assets/Custom-Cursor-48.png") 0 0,
     url("../Assets/Custom-Cursor-32.png") 0 0,
     auto;
@@ -26,6 +27,11 @@ body {
   inset: 0;
   overflow: hidden;
   touch-action: none;
+}
+
+a,
+button {
+  touch-action: manipulation;
 }
 
 .canvas-world {
@@ -69,6 +75,12 @@ body {
   filter:
     drop-shadow(13px 17px 10px rgb(0 0 0 / 0.22))
     drop-shadow(3px 5px 2px rgb(0 0 0 / 0.18));
+}
+
+@media (pointer: coarse) {
+  * {
+    cursor: auto;
+  }
 }
 
 

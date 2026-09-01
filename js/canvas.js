@@ -14,6 +14,11 @@ const stickers = [...document.querySelectorAll(".sticker")];
 const BASE_SCALE = 0.62;
 const MAX_SCALE = 1.45;
 const isAboutPage = document.body.classList.contains("about-page");
+const isCoarsePointer = window.matchMedia?.("(pointer: coarse)")?.matches;
+
+if (isCoarsePointer) {
+  document.documentElement.classList.add("is-touch-device");
+}
 
 const state = {
   pointerX: window.innerWidth / 2,
@@ -31,6 +36,7 @@ const state = {
   lastY: 0,
   velocityX: 0,
   velocityY: 0,
+  lastPointerType: isCoarsePointer ? "touch" : "mouse",
 };
 
 let lastFrameTime = 0;
@@ -220,6 +226,7 @@ function getStickerState(sticker) {
 function updatePointer(event) {
   state.pointerX = event.clientX;
   state.pointerY = event.clientY;
+  state.lastPointerType = event.pointerType || "mouse";
   pointerDirty = true;
   requestFrame();
 }
@@ -383,7 +390,7 @@ function animate(now) {
       const friction = Math.pow(0.91, dtFactor);
       state.velocityX *= friction;
       state.velocityY *= friction;
-    } else {
+    } else if (state.lastPointerType === "mouse") {
       state.velocityX = 0;
       state.velocityY = 0;
 

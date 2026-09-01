@@ -1384,3 +1384,106 @@
 .project-bookmark--website {
   background: #4B5132;
 }
+
+@media (hover: none), (pointer: coarse) {
+  .case-card,
+  .case-file-nav__button,
+  .project-folder-card,
+  .project-back-button,
+  .project-bookmark {
+    touch-action: manipulation;
+  }
+
+  .case-card:hover {
+    filter: none;
+  }
+
+  .case-card--one:hover {
+    transform: rotate(-4deg);
+  }
+
+  .case-card--two:hover {
+    transform: rotate(0.8deg);
+  }
+
+  .case-card--three:hover {
+    transform: rotate(2.2deg);
+  }
+
+  .case-card:active {
+    filter: brightness(1.03);
+    transform: translateY(-10px) scale(1.01);
+  }
+
+  .case-card--one:active {
+    transform: translateY(-10px) rotate(-4deg) scale(1.01);
+  }
+
+  .case-card--two:active {
+    transform: translateY(-10px) rotate(0.8deg) scale(1.01);
+  }
+
+  .case-card--three:active {
+    transform: translateY(-10px) rotate(2.2deg) scale(1.01);
+  }
+
+  .case-file-nav__button {
+    min-height: 118px;
+  }
+
+  .case-file-nav__button:hover {
+    transform: none;
+  }
+
+  .case-file-nav__button:active,
+  .project-bookmark:active,
+  .project-back-button:active {
+    filter: brightness(1.06);
+  }
+
+  .project-folder-card--cc:hover,
+  .project-folder-card--design:hover,
+  .project-folder-card--web:hover {
+    transform: rotate(0deg);
+  }
+
+  .project-folder-card--cc:active,
+  .project-folder-card--design:active,
+  .project-folder-card--web:active {
+    transform: translateY(-3%) scale(1.02);
+  }
+
+  .project-bookmark:hover {
+    transform: translateX(0);
+  }
+
+  .project-bookmark:active {
+    transform: translateX(-6%);
+  }
+
+  .case-modal {
+    padding: 4vh 3vw;
+    touch-action: none;
+  }
+
+  .case-modal__paper {
+    width: min(720px, 94vw);
+    padding: 34px 28px 46px;
+  }
+
+  .case-modal__title {
+    font-size: clamp(42px, 12vw, 70px);
+  }
+
+  .case-modal__meta-grid,
+  .case-modal__evidence,
+  .case-modal__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .case-modal__description,
+  .case-modal__section p,
+  .case-modal__process {
+    font-size: 16px;
+  }
+}

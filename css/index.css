@@ -1199,3 +1199,28 @@
   }
 }
 
+@media (hover: none), (pointer: coarse) {
+  .about-card:hover,
+  .sticky-note:hover,
+  .document-card:hover,
+  .letter-card:hover,
+  .plant-pot:hover,
+  .ruler-edge:hover,
+  .scissors-corner:hover,
+  .hero-card:hover,
+  .intro-note:hover {
+    transition-duration: 180ms;
+  }
+
+  .about-card:active,
+  .document-card:active,
+  .letter-card__button:active {
+    filter: brightness(1.04);
+  }
+
+  .letter-card__button {
+    min-height: 112px;
+    padding: 8% 13% 8% 10%;
+  }
+}
+

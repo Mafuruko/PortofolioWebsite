@@ -420,4 +420,29 @@
   }
 }
 
+@media (hover: none), (pointer: coarse) {
+  .about-page__naufy-pict:hover,
+  .about-page__naufy-polaroid:hover,
+  .about-page__paperclip:hover,
+  .about-page__focus-area:hover,
+  .about-page__what-good:hover,
+  .about-page__quote:hover,
+  .about-page__desk-object:hover,
+  .about-page__newspaper:hover,
+  .about-page__back-button:hover {
+    transition-duration: 180ms;
+  }
+
+  .about-page__back-button,
+  .about-page__newspaper {
+    min-width: 160px;
+  }
+
+  .about-page__back-button:active,
+  .about-page__newspaper:active {
+    filter: brightness(1.04)
+      drop-shadow(10px 13px 8px rgb(0 0 0 / 0.18));
+  }
+}
+
 
