@@ -660,6 +660,10 @@
   gap: 18px;
 }
 
+.case-modal__evidence[hidden] {
+  display: none;
+}
+
 .case-modal__evidence-link {
   display: inline-block;
   margin: 0 0 14px;

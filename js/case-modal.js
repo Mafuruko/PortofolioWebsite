@@ -117,13 +117,24 @@ function setModalContent(data) {
   caseModal.querySelector(".case-modal__role").textContent = data.role || "Creative Direction";
 
   const evidenceImages = data.evidenceImages || [data.image, data.image];
+  const evidenceGrid = caseModal.querySelector(".case-modal__evidence");
   const primaryImage = caseModal.querySelector(".case-modal__image--primary");
-  primaryImage.src = evidenceImages[0] || data.image;
-  primaryImage.alt = data.alt;
-
   const secondaryImage = caseModal.querySelector(".case-modal__image--secondary");
-  secondaryImage.src = evidenceImages[1] || evidenceImages[0] || data.image;
-  secondaryImage.alt = data.alt;
+  const shouldShowEvidenceImages = evidenceImages.length > 0;
+
+  evidenceGrid.hidden = !shouldShowEvidenceImages;
+
+  if (shouldShowEvidenceImages) {
+    primaryImage.src = evidenceImages[0] || data.image;
+    primaryImage.alt = data.alt;
+    secondaryImage.src = evidenceImages[1] || evidenceImages[0] || data.image;
+    secondaryImage.alt = data.alt;
+  } else {
+    primaryImage.removeAttribute("src");
+    primaryImage.alt = "";
+    secondaryImage.removeAttribute("src");
+    secondaryImage.alt = "";
+  }
 
   caseModal.querySelector(".case-modal__title").textContent = data.title;
   caseModal.querySelector(".case-modal__description").textContent = data.brief || data.description;
